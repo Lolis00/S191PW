@@ -23,7 +23,7 @@
         <h1 class="display-1"> Bienvenido Turista!</h1>
         <p>Presiona el boton para iniciar...</p>
 
-        <a href="/form" class="btn btn-danger"> Ir al Registro</a>
+        <a href="/formulario" class="btn btn-danger"> Ir al Registro</a>
         <a href="{{ route('rutacacas') }}" class="btn btn-primary"> Ir al Registro</a>
 
     </div>
