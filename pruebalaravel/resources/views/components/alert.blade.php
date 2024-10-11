@@ -1,3 +1,6 @@
-<div>
-    <!-- An unexamined life is not worth living. - Socrates -->
+<div class="container mt-4"> 
+
+<div class="alert alert-{{ $tipo }}" role="alert">
+soy un alert {{ $slot }}
+</div>
 </div>
