@@ -17,16 +17,13 @@
     </style>
 </head>
 <body>
+    <div class="d-flex flex-column justify-content-center align-items-center full-height">
+        
+        <h1 class="display-1">Bienvenido Turista! </h1>
+        <p>Presione el botón para iniciar...</p>
 
-    <div class="d-flex flex-column justify-content-center align-items-center text-center full-height">
-
-        <h1 class="display-1"> Bienvenido Turista!</h1>
-        <p>Presiona el boton para iniciar...</p>
-
-        <a href="/formulario" class="btn btn-danger"> Ir al Registro</a>
-        <a href="{{ route('rutacacas') }}" class="btn btn-primary"> Ir al Registro</a>
-
-    </div>
-    
+        <a href="{{route('rutacacas')}}" class="btn btn-primary"> Ir al registro </a>
+        <a href="{{route('rutaconsulta')}}" class="btn btn-danger"> Consultar Clientes </a>
+        {{-- <a href="/formulario" class="btn btn-danger"> Consultar Clientes </a> --}}
 </body>
 </html>
