@@ -19,8 +19,8 @@
 
     <div class="d-flex flex-column justify-content-center align-items-center full-height">
         <h1>Bienvenido a mi proyecto de repaso</h1>
-        <p>Nombre: Lolis</p>
-        <p>Proyecto: practicaRepasos</p>
+        <p>Nombre: Lolis ZP</p>
+        <p>Proyecto: practica Repasos</p>
 
         <a href="{{ route('repaso1') }}" class="btn btn-primary">REPASO 1</a>
         
