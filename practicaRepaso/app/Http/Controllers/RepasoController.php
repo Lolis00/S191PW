@@ -29,7 +29,8 @@ class RepasoController extends Controller
                 break;
         }
     
-        return view("repaso1", ['resultado' => $resultado]);
+        return  $resultado;
+
     }
     
     

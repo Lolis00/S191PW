@@ -8,6 +8,7 @@
 
     {{--Para que funcione bootstrap--}}
     @vite(['resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     {{--Para que cambie el nombre--}}
     <title> @yield('titulo')</title>
