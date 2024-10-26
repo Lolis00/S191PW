@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validadadorCliente;
 
 class controladorVistas extends Controller
 {
@@ -20,21 +21,10 @@ class controladorVistas extends Controller
         return view('clientes');
     }
     //en la peticion se guardan los cambios de los campos
-    public function procesarCliente(Request $peticion)
+    public function procesarCliente(validadadorCliente $peticion)
     {
     //hacemos una validacion y es obligatoria no como la otra, tenemos que cumplir con estas reglas para que se pueda ejecutar lo demas 
-        $validacion=$peticion->validate([
-    //hay diferentes validaiones y se van concatenando con | 
-    //validacion min y max
-    //validacion de numero numeric
-    //validacion correo email, rfc, dns
-    //validacion 
-
-            'txtnombre'=>'required|min:3|max:20',
-            'txtapellido'=>'required',
-            'txtcorreo'=>'required|email:rfc:dns',
-            'txttelefono'=>'required|numeric',
-        ]);
+       
 //---------------------------------------------
 
         //respuesta a la petición POST
