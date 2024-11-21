@@ -40,7 +40,7 @@
     {{__('Registro de Clientes')}}
  </div>
  <div class="card-body text-justify">
-  <form method="POST"  action="{{ route('rutaenviar') }}">
+  <form method="POST"  action="/enviarCliente">
     @csrf 
     
     <div class="mb-3">

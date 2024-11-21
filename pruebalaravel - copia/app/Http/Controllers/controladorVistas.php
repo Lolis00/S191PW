@@ -18,7 +18,7 @@ class controladorVistas extends Controller
         return view('clientes');
     }
     //en la peticion se guardan los cambios de los campos
-    public function procesarCliente(validadadorCliente $peticion)
+    public function procesarCliente(validarCliente $peticion)
     {
     //hacemos una validacion y es obligatoria no como la otra, tenemos que cumplir con estas reglas para que se pueda ejecutar lo demas 
        
