@@ -26,9 +26,43 @@
 
     <div class="card-footer text-muted">
 
-        <a href="{{route('rutaedit', $cliente)}}" class="btn btn-primary">{{__('Actualizar')}} </a>
-        <button type="submit" class="btn btn-danger btn-sm">{{__('Eliminar')}}</button>
+    <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-primary">{{ __('Actualizar') }}</a>
+    <form id="form-delete-{{ $cliente->id }}" method="POST" action="{{ route('clientes.destroy', $cliente->id) }}" style="display: inline;">
+        @csrf
+        @method('DELETE')
+        <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $cliente->id }})">{{ __('Eliminar') }}</button>
+    </form>
     </div>
+    <script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡Esta acción no es revertible!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si se confirma, envía el formulario
+                document.getElementById(`form-delete-${id}`).submit();
+            }
+        });
+    }
+</script>
+@if (session('exito'))
+<script>
+    Swal.fire({
+        title: '¡Éxito!',
+        text: '{{ session('exito') }}',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+    });
+</script>
+@endif
+
 
 </div>
 @endforeach

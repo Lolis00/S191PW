@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use App\Http\Requests\validadorCliente;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -11,7 +12,7 @@ class validadorCliente extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

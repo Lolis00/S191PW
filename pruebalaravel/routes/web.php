@@ -17,7 +17,14 @@ Route::get('/', [clienteController::class, 'home'])->name('rutainicio');
 
 Route::get('/consultas', [clienteController::class, 'index'])->name('rutaconsulta');
 
-Route::patch('/edit', [clienteController::class, 'edit'])->name('rutaedit');
+Route::get('/clientes/{id}/edit', [clienteController::class, 'edit'])->name('clientes.edit');
+
+Route::put('/clientes/{id}', [clienteController::class, 'update'])->name('clientes.update');
+
+Route::delete('/clientes/{id}', [clienteController::class, 'destroy'])->name('clientes.destroy');
+
+
+
 
 /*Route::get('/', function () {
     return view('welcome');
@@ -28,6 +35,7 @@ Route::patch('/edit', [clienteController::class, 'edit'])->name('rutaedit');
 Funciona tanto la sintaxis de arriba como la de abajo*/
 
 /* Route::view('/','inicio') ->name('rutainicio');
+
 
 Route::view('/formulario','formulario')->name('rutacacas');
 

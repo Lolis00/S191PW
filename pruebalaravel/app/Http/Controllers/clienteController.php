@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Http\Requests\validadadorCliente;
+use App\Http\Requests\validadorCliente;
 
 class clienteController extends Controller
 {
@@ -68,23 +68,37 @@ class clienteController extends Controller
      */
     public function edit(string $id)
     {
-        $consultaClientes = DB::table('cliente')->get();
-        return view('clientes', compact ('consultaClientes'));
+        $cliente = DB::table('cliente')->where('id', $id)->first();
+        return view('edit_formulario', compact('cliente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(validadorCliente $request, string $id)
+{
+    DB::table('cliente')->where('id', $id)->update([
+        "nombre" => $request->input('txtnombre'),
+        "apellido" => $request->input('txtapellido'),
+        "correo" => $request->input('txtcorreo'),
+        "telefono" => $request->input('txttelefono'),
+        
+        "updated_at" => Carbon::now(),
+    ]);
+
+    session()->flash('exito', 'El cliente ha sido actualizado.');
+    return to_route('rutaconsulta');
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('cliente')->where('id', $id)->delete();
+    
+        // Mensaje de éxito tras eliminar
+        session()->flash('exito', 'Cliente eliminado exitosamente.');
+        return to_route('rutaconsulta');
     }
 }
