@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre',150);/*despues d la coma se definen los rangos para los campos*/
+            $table->string('apellido');
+            $table->string('correo');
+            $table->string('telefono',20);
+            $table->timestamps(); /* Nos dice el tiempo en el que se actualizo*/
+        
         });
     }
 

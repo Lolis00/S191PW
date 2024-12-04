@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('cliente', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre',150);/*despues d la coma se definen los rangos para los campos*/
+            
+            $table->string('correo');
+           
+            $table->timestamps(); /* Nos dice el tiempo en el que se actualizo*/
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('cliente');
+    }
+};

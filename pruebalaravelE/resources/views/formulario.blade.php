@@ -40,13 +40,13 @@
     {{__('Registro de Clientes')}}
  </div>
  <div class="card-body text-justify">
-  <form method="POST"  action="/enviarCliente">
+  <form method="POST"  action="{{route('cliente.store}}">
     @csrf 
-    
+      
     <div class="mb-3">
       <label for="Nombre" class="form-label">{{__('Nombre:')}} </label>
       <input type="text" class="form-control" name="txtnombre" value="{{old('txtnombre')}}">
-              {{--Trae todos los errores con errors pero le decimos que los traiga el 1 con el firts--}}
+              
       <small class="text-danger fst-italic"> {{ $errors->first('txtnombre') }}</small>
   </div>
   <div class="mb-3">
